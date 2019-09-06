@@ -60,15 +60,15 @@ import 'vue2-timepicker/dist/VueTimepicker.css'
 
 export default {
     components: { VueTimepicker },
-  data() {
-     return{
-         elements: [],
-        yourTimeValue: {
-        HH: "00",
-        mm: "00",
-      },
-     }
-},
+    data() {
+        return{
+            elements: [],
+            yourTimeValue: {
+                HH: "00",
+                mm: "00",
+            }
+        }
+    },
     methods: {
         // 要素を追加
         append: function() {
@@ -81,8 +81,8 @@ export default {
             // テキストボックスの中身を空に
             $('#new-object').val('');
             $('#new-value').val('');
-            $('#new-day').val('');
-            $('#new-time').val('');
+            $('#new-day').val('Mon');
+            $('#new-time').val('00:00');
         },
         // 要素を削除
         remove: function(index) {
