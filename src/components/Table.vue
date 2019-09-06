@@ -6,8 +6,7 @@
                 <th>Object</th>
                 <th>Value</th>
                 <th>Day</th>
-                <th>H</th>
-                <th>M</th>
+                <th>Time</th>
                 <th></th>
             </tr>
         </thead>
@@ -17,8 +16,7 @@
                 <td>{{ elem.object }}</td>
                 <td>{{ elem.value }}</td>
                 <td>{{ elem.day }}</td>
-                <td>{{ elem.hour }}</td>
-                <td>{{ elem.minute }}</td>
+                <td>{{ elem.time }}</td>
                 <!-- クリックして要素を削除 -->
                 <td><span v-on:click="remove(index)" class="glyphicon glyphicon-remove"></span></td>
             </tr>
@@ -43,10 +41,7 @@
                     </select>
                 </td>
                 <td>
-                    <input id="new-hour" type="text">
-                </td>
-                <td>
-                    <input id="new-minute" type="text">
+                    <vue-timepicker id="new-time" v-model="yourTimeValue" format="HH:mm"></vue-timepicker>
                 </td>
                 <!-- クリックして要素を追加 -->
                 <td>
@@ -60,10 +55,18 @@
 </template>
 
 <script>
+import VueTimepicker from 'vue2-timepicker'
+import 'vue2-timepicker/dist/VueTimepicker.css'
+
 export default {
+    components: { VueTimepicker },
   data() {
      return{
-         elements: []
+         elements: [],
+        yourTimeValue: {
+        HH: "00",
+        mm: "00",
+      },
      }
 },
     methods: {
@@ -73,15 +76,13 @@ export default {
                 object: $('#new-object').val(),
                 value: $('#new-value').val(),
                 day: $('#new-day').val(),
-                hour: $('#new-hour').val(),
-                minute: $('#new-minute').val(),
+                time: $('#new-time').val(),
             });
             // テキストボックスの中身を空に
             $('#new-object').val('');
             $('#new-value').val('');
             $('#new-day').val('');
-            $('#new-hour').val('');
-            $('#new-minute').val('');
+            $('#new-time').val('');
         },
         // 要素を削除
         remove: function(index) {
