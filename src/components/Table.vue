@@ -6,7 +6,7 @@
                 <th>Object</th>
                 <th>Value</th>
                 <th>Day</th>
-                <th>Time</th>
+                <th>Time(HH:mm)</th>
                 <th></th>
             </tr>
         </thead>
