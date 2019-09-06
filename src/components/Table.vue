@@ -61,10 +61,6 @@
 
 <script>
 export default {
-  name: 'table',
-  props: {
-    msg: String
-  },
   data() {
      return{
          elements: []
